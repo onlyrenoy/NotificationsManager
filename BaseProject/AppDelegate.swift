@@ -20,6 +20,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = home
         self.window?.makeKeyAndVisible()
         
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                // Handle the error here.
+                print("Authorization error: \(error.localizedDescription)")
+            } else if granted {
+                // Permission granted.
+                print("Notification permission granted.")
+            } else {
+                // Permission denied.
+                print("Notification permission denied.")
+            }
+        }
+        
         return true
     }
 }
