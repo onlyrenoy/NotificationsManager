@@ -51,6 +51,7 @@ extension ViewController: UNUserNotificationCenterDelegate {
         content.body = "This is an in-app notification."
         content.sound = .default
 
+        // Trigger after 1 second
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
 
         let request = UNNotificationRequest(identifier: "InAppNotification", content: content, trigger: trigger)
